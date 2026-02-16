@@ -25,6 +25,8 @@ export function RiskExperience(): JSX.Element {
   const {
     period,
     minimized,
+    manualProtectiveModeEnabled,
+    manualProtectiveModeActivatedAt,
     snapshot,
     loading,
     error,
@@ -32,7 +34,9 @@ export function RiskExperience(): JSX.Element {
     toggleMinimized,
     setSnapshot,
     setLoading,
-    setError
+    setError,
+    enableManualProtectiveMode,
+    disableManualProtectiveMode
   } = useRiskStore();
 
   useEffect(() => {
@@ -88,8 +92,12 @@ export function RiskExperience(): JSX.Element {
       snapshot={snapshot}
       period={period}
       minimized={minimized}
+      manualProtectiveModeEnabled={manualProtectiveModeEnabled}
+      manualProtectiveModeActivatedAt={manualProtectiveModeActivatedAt}
       onPeriodChange={setPeriod}
       onToggleMinimized={toggleMinimized}
+      onEnableProtectiveMode={enableManualProtectiveMode}
+      onDisableProtectiveMode={disableManualProtectiveMode}
     />
   );
 }
